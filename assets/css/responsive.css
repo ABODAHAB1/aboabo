@@ -1,0 +1,363 @@
+/* Tablet (768px) */
+@media (max-width: 768px) {
+    :root {
+        --font-size-3xl: 1.75rem;
+        --font-size-2xl: 1.25rem;
+    }
+
+    .navbar-container {
+        padding: var(--spacing-md);
+    }
+
+    .navbar-menu {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: var(--font-size-base);
+    }
+
+    .search-container {
+        flex-direction: column;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nav-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .coins-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .main-content {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .modal-content {
+        padding: var(--spacing-lg);
+    }
+
+    .modal-footer {
+        flex-direction: column;
+    }
+
+    .modal-footer .btn {
+        width: 100%;
+    }
+}
+
+/* Mobile (480px) */
+@media (max-width: 480px) {
+    :root {
+        --font-size-3xl: 1.5rem;
+        --font-size-2xl: 1.125rem;
+        --font-size-lg: 1rem;
+        --spacing-lg: 1rem;
+        --spacing-2xl: 1.5rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.25rem;
+    }
+
+    .brand-icon {
+        font-size: 1.5rem;
+    }
+
+    .brand-text {
+        display: none;
+    }
+
+    .hero-content h1 {
+        font-size: 1.75rem;
+    }
+
+    .hero-content p {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .search-input {
+        font-size: var(--font-size-sm);
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .search-btn {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .stat-card {
+        padding: var(--spacing-lg);
+    }
+
+    .stat-value {
+        font-size: var(--font-size-lg);
+    }
+
+    .nav-cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-card {
+        padding: var(--spacing-lg);
+    }
+
+    .nav-card-icon {
+        font-size: 2rem;
+    }
+
+    .nav-card-title {
+        font-size: var(--font-size-base);
+    }
+
+    .nav-card-description {
+        display: none;
+    }
+
+    .coins-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .coin-card {
+        padding: var(--spacing-md);
+    }
+
+    .coin-header {
+        gap: var(--spacing-sm);
+    }
+
+    .coin-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1.25rem;
+    }
+
+    .coin-info h3 {
+        font-size: var(--font-size-base);
+    }
+
+    .coin-stats {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .coin-price {
+        font-size: var(--font-size-lg);
+    }
+
+    .coin-footer {
+        flex-direction: column;
+    }
+
+    .coin-change {
+        width: 100%;
+    }
+
+    .coin-favorite {
+        font-size: 1.25rem;
+    }
+
+    .footer-content {
+        gap: var(--spacing-lg);
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .main-content {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .hero-section {
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .trending-section {
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .trending-section h2 {
+        margin-bottom: var(--spacing-md);
+        font-size: var(--font-size-xl);
+    }
+
+    .navigation-section h2 {
+        margin-bottom: var(--spacing-md);
+        font-size: var(--font-size-xl);
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: var(--spacing-lg);
+    }
+
+    .modal-header h2 {
+        font-size: var(--font-size-xl);
+    }
+
+    /* Tables and Lists */
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .data-table {
+        font-size: var(--font-size-sm);
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: var(--spacing-sm);
+    }
+}
+
+/* Extra Small Devices (320px) */
+@media (max-width: 320px) {
+    :root {
+        --spacing-lg: 0.75rem;
+        --spacing-md: 0.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .nav-cards-grid {
+        gap: var(--spacing-sm);
+    }
+
+    .coins-grid {
+        gap: var(--spacing-sm);
+    }
+
+    .coin-card {
+        padding: var(--spacing-sm);
+    }
+}
+
+/* Landscape Mode */
+@media (max-height: 600px) and (orientation: landscape) {
+    .navbar {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .hero-content h1 {
+        font-size: 1.5rem;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .hero-content p {
+        margin-bottom: var(--spacing-md);
+        font-size: var(--font-size-sm);
+    }
+
+    .stats-grid {
+        gap: var(--spacing-md);
+    }
+
+    .stat-card {
+        padding: var(--spacing-md);
+    }
+}
+
+/* Print Styles */
+@media print {
+    .navbar,
+    .footer,
+    .hamburger-menu,
+    .mobile-menu,
+    .btn {
+        display: none;
+    }
+
+    .main-content {
+        padding: 0;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .glassmorphism {
+        background: white;
+        border: 1px solid #ccc;
+    }
+}
+
+/* Dark Mode Preference */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-primary: #0f1419;
+        --bg-secondary: #1a1f2e;
+        --text-primary: #ffffff;
+        --text-secondary: #a0aec0;
+    }
+}
+
+/* Light Mode (if needed) */
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg-primary: #ffffff;
+        --bg-secondary: #f5f7fa;
+        --bg-tertiary: #eff1f5;
+        --text-primary: #1a202c;
+        --text-secondary: #4a5568;
+        --text-tertiary: #718096;
+        --border-color: rgba(0, 0, 0, 0.1);
+        --border-light: rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar {
+        background: rgba(255, 255, 255, 0.95);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .glassmorphism {
+        background: rgba(0, 0, 0, 0.02);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: more) {
+    :root {
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-primary {
+        border: 2px solid var(--primary-color);
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
