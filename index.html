@@ -1,0 +1,1812 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercedes-Benz | Future of Luxury Performance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-black: #0a0e27;
+            --secondary-black: #1a1f3a;
+            --dark-gray: #2a2f4a;
+            --silver: #e0e0e0;
+            --accent-silver: #c0c0c0;
+            --neon-blue: #00d4ff;
+            --neon-red: #ff1744;
+            --gold: #d4af37;
+            --glow-silver: #f0f0f0;
+        }
+
+        body {
+            font-family: 'Montserrat', 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--primary-black) 0%, var(--secondary-black) 100%);
+            color: var(--silver);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 999;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 14, 39, 0.8);
+            border-bottom: 1px solid rgba(224, 224, 224, 0.1);
+            transition: all 0.3s ease;
+            padding: 1.5rem 3rem;
+        }
+
+        .navbar.scrolled {
+            padding: 0.8rem 3rem;
+            background: rgba(10, 14, 39, 0.95);
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, var(--silver) 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: logoGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes logoGlow {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(224, 224, 224, 0.3)); }
+            50% { filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.6)); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--silver);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--silver));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10, 14, 39, 0.9) 0%, rgba(26, 31, 58, 0.8) 50%, rgba(42, 47, 74, 0.9) 100%);
+            z-index: 1;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .hero-car {
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            animation: carFloat 6s ease-in-out infinite;
+            filter: drop-shadow(0 0 40px rgba(0, 212, 255, 0.3));
+        }
+
+        .hero-car img {
+            width: 500px;
+            height: auto;
+            filter: brightness(1.1) contrast(1.2);
+        }
+
+        @keyframes carFloat {
+            0%, 100% { transform: translateY(-50%); }
+            50% { transform: translateY(-55%); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            left: 5%;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--silver) 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            animation: titleSlideIn 1s ease-out;
+        }
+
+        @keyframes titleSlideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: var(--neon-blue);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            animation: subtitleFade 1s ease-out 0.3s both;
+        }
+
+        @keyframes subtitleFade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            animation: buttonsSlide 1s ease-out 0.6s both;
+        }
+
+        @keyframes buttonsSlide {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: 2px solid var(--silver);
+            background: transparent;
+            color: var(--silver);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--neon-blue), var(--gold));
+            z-index: -1;
+            transition: right 0.3s ease;
+        }
+
+        .btn:hover::before {
+            right: 0;
+        }
+
+        .btn:hover {
+            color: var(--primary-black);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--neon-blue), var(--gold));
+            border: none;
+            color: var(--primary-black);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.8);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            animation: statsAppear 1s ease-out 0.9s both;
+        }
+
+        @keyframes statsAppear {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .stat-card {
+            backdrop-filter: blur(10px);
+            background: rgba(224, 224, 224, 0.05);
+            border: 1px solid rgba(224, 224, 224, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.5);
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--neon-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--accent-silver);
+            letter-spacing: 1px;
+        }
+
+        /* Featured Vehicles Section */
+        .featured-vehicles {
+            padding: 5rem 3rem;
+            background: linear-gradient(180deg, var(--primary-black) 0%, var(--secondary-black) 50%, var(--dark-gray) 100%);
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--silver) 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+        }
+
+        .vehicles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .vehicle-card {
+            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, rgba(26, 31, 58, 0.9) 0%, rgba(42, 47, 74, 0.9) 100%);
+            border: 1px solid rgba(224, 224, 224, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            height: 400px;
+        }
+
+        .vehicle-card:hover {
+            transform: translateY(-20px) scale(1.05);
+            border: 1px solid rgba(0, 212, 255, 0.5);
+            box-shadow: 0 20px 50px rgba(0, 212, 255, 0.3);
+        }
+
+        .vehicle-image {
+            width: 100%;
+            height: 60%;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(212, 175, 55, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .vehicle-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .vehicle-card:hover .vehicle-image img {
+            transform: scale(1.15) rotate(2deg);
+        }
+
+        .vehicle-info {
+            padding: 1.5rem;
+        }
+
+        .vehicle-name {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--silver);
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .vehicle-price {
+            color: var(--neon-blue);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .vehicle-specs {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--accent-silver);
+        }
+
+        .spec {
+            text-align: center;
+        }
+
+        .spec-value {
+            color: var(--neon-blue);
+            font-weight: 900;
+            display: block;
+        }
+
+        /* 3D Experience Section */
+        .experience-section {
+            padding: 5rem 3rem;
+            background: linear-gradient(135deg, var(--secondary-black) 0%, var(--primary-black) 100%);
+            position: relative;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .experience-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--neon-blue);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            animation: float 20s infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* AMG Performance Section */
+        .amg-section {
+            padding: 5rem 3rem;
+            background: linear-gradient(135deg, #4a0000 0%, #1a0000 50%, var(--primary-black) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .amg-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .amg-title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--neon-red);
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            text-shadow: 0 0 30px rgba(255, 23, 68, 0.5);
+        }
+
+        .amg-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .amg-spec-card {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 23, 68, 0.1);
+            border: 2px solid var(--neon-red);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .amg-spec-card:hover {
+            box-shadow: 0 0 40px rgba(255, 23, 68, 0.5);
+            transform: scale(1.05);
+        }
+
+        .amg-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--neon-red);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Electric Section */
+        .electric-section {
+            padding: 5rem 3rem;
+            background: linear-gradient(135deg, #001a4a 0%, #003a8a 50%, var(--primary-black) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .electric-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .electric-title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--neon-blue);
+            letter-spacing: 2px;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+        }
+
+        .electric-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .electric-card {
+            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 100, 200, 0.1));
+            border: 2px solid var(--neon-blue);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .electric-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--neon-blue), transparent);
+            border-radius: 15px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+
+        .electric-card:hover::before {
+            opacity: 0.3;
+        }
+
+        .electric-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.4);
+        }
+
+        .electric-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .electric-card h3 {
+            font-size: 1.3rem;
+            color: var(--neon-blue);
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .electric-card p {
+            color: var(--accent-silver);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Interior Section */
+        .interior-section {
+            padding: 5rem 3rem;
+            background: linear-gradient(180deg, var(--secondary-black) 0%, var(--dark-gray) 100%);
+            position: relative;
+        }
+
+        .interior-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-top: 3rem;
+        }
+
+        .interior-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            aspect-ratio: 16/9;
+            border: 1px solid rgba(224, 224, 224, 0.1);
+            cursor: pointer;
+            group: interior;
+        }
+
+        .interior-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .interior-image:hover img {
+            transform: scale(1.1) rotate(1deg);
+        }
+
+        .interior-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(10, 14, 39, 0.95), transparent);
+            padding: 1.5rem;
+            color: var(--silver);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* Video Section */
+        .video-section {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 14, 39, 0.6);
+            z-index: 1;
+        }
+
+        .video-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .video-title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--silver);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Build Your Car Section */
+        .configurator-section {
+            padding: 5rem 3rem;
+            background: linear-gradient(135deg, var(--primary-black) 0%, var(--secondary-black) 100%);
+        }
+
+        .configurator-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .configurator-preview {
+            position: relative;
+            height: 500px;
+            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, rgba(26, 31, 58, 0.9), rgba(42, 47, 74, 0.9));
+            border: 1px solid rgba(224, 224, 224, 0.1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .preview-car {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: brightness(1.1);
+        }
+
+        .configurator-options {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .config-group {
+            backdrop-filter: blur(10px);
+            background: rgba(26, 31, 58, 0.8);
+            border: 1px solid rgba(224, 224, 224, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+
+        .config-label {
+            color: var(--neon-blue);
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .config-items {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .config-item {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            border: 2px solid rgba(224, 224, 224, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .config-item:hover {
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+        }
+
+        .config-item.active {
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
+        }
+
+        /* Test Drive Section */
+        .test-drive-section {
+            padding: 5rem 3rem;
+            background: linear-gradient(135deg, var(--secondary-black) 0%, var(--dark-gray) 100%);
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            backdrop-filter: blur(10px);
+            background: rgba(26, 31, 58, 0.9);
+            border: 1px solid rgba(224, 224, 224, 0.1);
+            padding: 3rem;
+            border-radius: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            color: var(--silver);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .form-input,
+        .form-select {
+            width: 100%;
+            padding: 0.8rem 1.2rem;
+            background: rgba(42, 47, 74, 0.8);
+            border: 2px solid rgba(224, 224, 224, 0.2);
+            color: var(--silver);
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus,
+        .form-select:focus {
+            outline: none;
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            background: rgba(42, 47, 74, 0.95);
+        }
+
+        .form-input::placeholder {
+            color: rgba(224, 224, 224, 0.5);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--neon-blue), var(--gold));
+            border: none;
+            color: var(--primary-black);
+            font-weight: 900;
+            letter-spacing: 2px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+        }
+
+        .submit-btn:hover {
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.6);
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(180deg, var(--primary-black) 0%, rgba(10, 14, 39, 0.95) 100%);
+            padding: 3rem;
+            border-top: 1px solid rgba(224, 224, 224, 0.1);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--silver);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: var(--accent-silver);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--neon-blue);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(224, 224, 224, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--silver);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            border: 1px solid var(--neon-blue);
+            color: var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(224, 224, 224, 0.1);
+            color: var(--accent-silver);
+            font-size: 0.85rem;
+        }
+
+        /* Loading Animation */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            animation: fadeOut 0.8s ease-out 2s forwards;
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                pointer-events: none;
+            }
+        }
+
+        .loader {
+            display: flex;
+            gap: 10px;
+        }
+
+        .loader-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--neon-blue);
+            animation: pulse 1.4s infinite;
+        }
+
+        .loader-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .loader-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-car img {
+                width: 350px;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+
+            .configurator-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.8rem;
+            }
+
+            .hero {
+                height: 80vh;
+            }
+
+            .hero-car {
+                right: 0;
+                opacity: 0.5;
+            }
+
+            .hero-car img {
+                width: 250px;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .featured-vehicles {
+                padding: 3rem 1rem;
+            }
+
+            .vehicles-grid {
+                gap: 1rem;
+            }
+
+            .vehicle-card {
+                height: 350px;
+            }
+
+            .form-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loader">
+            <div class="loader-dot"></div>
+            <div class="loader-dot"></div>
+            <div class="loader-dot"></div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">MERCEDES-BENZ</div>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#vehicles">السيارات</a></li>
+                <li><a href="#amg">AMG</a></li>
+                <li><a href="#electric">كهربائي</a></li>
+                <li><a href="#interior">داخلي</a></li>
+                <li><a href="#contact">تواصل</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background"></div>
+        <canvas id="heroCanvas" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></canvas>
+        
+        <div class="hero-car">
+            <svg width="500" height="300" viewBox="0 0 500 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Mercedes Car SVG -->
+                <defs>
+                    <linearGradient id="carGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#e0e0e0;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#c0c0c0;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#a0a0a0;stop-opacity:1" />
+                    </linearGradient>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                        <feMerge>
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
+                
+                <!-- Car Body -->
+                <ellipse cx="250" cy="180" rx="180" ry="60" fill="url(#carGradient)" filter="url(#glow)"/>
+                
+                <!-- Front Section -->
+                <path d="M 100 160 Q 80 140 85 100 L 130 90 Q 140 100 150 160 Z" fill="url(#carGradient)"/>
+                
+                <!-- Windshield -->
+                <path d="M 150 110 L 200 80 L 200 140 L 150 160 Z" fill="rgba(0, 212, 255, 0.3)" stroke="rgba(224, 224, 224, 0.5)" stroke-width="2"/>
+                
+                <!-- Rear Windshield -->
+                <path d="M 300 140 L 350 120 L 350 160 L 300 160 Z" fill="rgba(0, 212, 255, 0.2)" stroke="rgba(224, 224, 224, 0.5)" stroke-width="2"/>
+                
+                <!-- Wheels -->
+                <circle cx="160" cy="220" r="35" fill="#1a1f3a" stroke="url(#carGradient)" stroke-width="3"/>
+                <circle cx="340" cy="220" r="35" fill="#1a1f3a" stroke="url(#carGradient)" stroke-width="3"/>
+                
+                <!-- Wheel Details -->
+                <circle cx="160" cy="220" r="25" fill="none" stroke="url(#carGradient)" stroke-width="2"/>
+                <circle cx="340" cy="220" r="25" fill="none" stroke="url(#carGradient)" stroke-width="2"/>
+                
+                <!-- Headlights -->
+                <circle cx="95" cy="130" r="15" fill="#00d4ff" filter="url(#glow)" opacity="0.8"/>
+                <circle cx="95" cy="130" r="12" fill="#ffffff" opacity="0.6"/>
+                
+                <!-- Taillights -->
+                <rect x="400" y="150" width="12" height="30" fill="#ff1744" opacity="0.8" rx="2"/>
+                <rect x="400" y="150" width="12" height="30" fill="#ff6b6b" opacity="0.4" rx="2"/>
+                
+                <!-- Mercedes Logo -->
+                <circle cx="250" cy="95" r="25" fill="none" stroke="#d4af37" stroke-width="2"/>
+                <circle cx="250" cy="95" r="20" fill="none" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
+                <line x1="250" y1="75" x2="250" y2="115" stroke="#d4af37" stroke-width="1.5" opacity="0.5"/>
+                <line x1="230" y1="95" x2="270" y2="95" stroke="#d4af37" stroke-width="1.5" opacity="0.5"/>
+                
+                <!-- Glow Effect -->
+                <ellipse cx="250" cy="200" rx="200" ry="80" fill="rgba(0, 212, 255, 0.1)" filter="url(#glow)"/>
+            </svg>
+        </div>
+
+        <div class="hero-content">
+            <h1 class="hero-title">Mercedes-Benz</h1>
+            <p class="hero-subtitle">مستقبل الأداء الفاخر</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary">استكشف السيارات</button>
+                <button class="btn">احجز اختبار</button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="stat-value">585</div>
+                    <div class="stat-label">حصان</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">2.8s</div>
+                    <div class="stat-label">0-100 كم/س</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">330</div>
+                    <div class="stat-label">كم/س</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">V8</div>
+                    <div class="stat-label">محرك</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Vehicles Section -->
+    <section class="featured-vehicles" id="vehicles">
+        <h2 class="section-title">مجموعة السيارات المميزة</h2>
+        <div class="vehicles-grid">
+            <!-- AMG GT -->
+            <div class="vehicle-card reveal">
+                <div class="vehicle-image">
+                    <svg width="100%" height="100%" viewBox="0 0 300 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="amg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#e0e0e0;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#808080;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <ellipse cx="150" cy="110" rx="120" ry="50" fill="url(#amg-gradient)"/>
+                        <circle cx="80" cy="145" r="25" fill="#1a1f3a" stroke="#e0e0e0" stroke-width="2"/>
+                        <circle cx="220" cy="145" r="25" fill="#1a1f3a" stroke="#e0e0e0" stroke-width="2"/>
+                        <rect x="40" y="80" width="80" height="35" fill="rgba(0, 212, 255, 0.2)" rx="5"/>
+                        <rect x="180" y="80" width="80" height="35" fill="rgba(0, 212, 255, 0.2)" rx="5"/>
+                    </svg>
+                </div>
+                <div class="vehicle-info">
+                    <div class="vehicle-name">AMG GT</div>
+                    <div class="vehicle-price">$156,000</div>
+                    <div class="vehicle-specs">
+                        <div class="spec">
+                            <span class="spec-value">585 HP</span>
+                            <span>قوة</span>
+                        </div>
+                        <div class="spec">
+                            <span class="spec-value">2.8s</span>
+                            <span>التسارع</span>
+                        </div>
+                        <div class="spec">
+                            <span class="spec-value">V8</span>
+                            <span>محرك</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- G63 -->
+            <div class="vehicle-card reveal">
+                <div class="vehicle-image">
+                    <svg width="100%" height="100%" viewBox="0 0 300 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="g63-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#d4af37;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#8b7500;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect x="50" y="60" width="200" height="90" fill="url(#g63-gradient)" rx="10"/>
+                        <circle cx="85" cy="145" r="28" fill="#1a1f3a" stroke="#d4af37" stroke-width="2"/>
+                        <circle cx="215" cy="145" r="28" fill="#1a1f3a" stroke="#d4af37" stroke-width="2"/>
+                        <rect x="60" y="70" width="50" height="40" fill="rgba(0, 212, 255, 0.15)" rx="3"/>
+                        <rect x="190" y="70" width="50" height="40" fill="rgba(0, 212, 255, 0.15)" rx="3"/>
+                    </svg>
+                </div>
+                <div class="vehicle-info">
+                    <div class="vehicle-name">G63 AMG</div>
+                    <div class="vehicle-price">$168,000</div>
+                    <div class="vehicle-specs">
+                        <div class="spec">
+                            <span class="spec-value">585 HP</span>
+                            <span>قوة</span>
+                        </div>
+                        <div class="spec">
+                            <span class="spec-value">4.4s</span>
+                            <span>التسارع</span>
+                        </div>
+                        <div class="spec">
+                            <span class="spec-value">V8</span>
+                            <span>محرك</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- S-Class -->
+            <div class="vehicle-card reveal">
+                <div class="vehicle-image">
+                    <svg width="100%" height="100%" viewBox="0 0 300 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="s-class-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#e0e0e0;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#909090;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M 60 100 Q 60 70 100 60 L 200 55 Q 240 65 240 100 L 240 130 Q 240 145 220 150 L 80 150 Q 60 145 60 130 Z" fill="url(#s-class-gradient)"/>
+                        <circle cx="90" cy="145" r="22" fill="#1a1f3a" stroke="#e0e0e0" stroke-width="2"/>
+                        <circle cx="210" cy="145" r="22" fill="#1a1f3a" stroke="#e0e0e0" stroke-width="2"/>
+                        <path d="M 100 75 L 140 70 L 140 105 L 100 100 Z" fill="rgba(0, 212, 255, 0.25)"/>
+                        <path d="M 160 75 L 200 70 L 200 105 L 160 100 Z" fill="rgba(0, 212, 255, 0.25)"/>
+                    </svg>
+                </div>
+                <div class="vehicle-info">
+                    <div class="vehicle-name">S-Class</div>
+                    <div class="vehicle-price">$104,000</div>
+                    <div class="vehicle-specs">
+                        <div class="spec">
+                            <span class="spec-value">503 HP</span>
+                            <span>قوة</span>
+                        </div>
+                        <div class="spec">
+                            <span class="spec-value">3.8s</span>
+                            <span>التسارع</span>
+                        </div>
+                        <div class="spec">
+                            <span class="spec-value">V8</span>
+                            <span>محرك</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EQS -->
+            <div class="vehicle-card reveal">
+                <div class="vehicle-image">
+                    <svg width="100%" height="100%" viewBox="0 0 300 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="eqs-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.8" />
+                                <stop offset="100%" style="stop-color:#0099ff;stop-opacity:0.8" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M 55 100 Q 55 65 105 55 L 195 52 Q 245 65 245 100 L 245 135 Q 245 150 220 155 L 80 155 Q 55 150 55 135 Z" fill="url(#eqs-gradient)"/>
+                        <circle cx="85" cy="150" r="24" fill="#1a1f3a" stroke="#00d4ff" stroke-width="2"/>
+                        <circle cx="215" cy="150" r="24" fill="#1a1f3a" stroke="#00d4ff" stroke-width="2"/>
+                        <path d="M 105 65 L 145 55 L 145 110 L 105 100 Z" fill="rgba(0, 212, 255, 0.3)"/>
+                        <path d="M 155 65 L 195 55 L 195 110 L 155 100 Z" fill="rgba(0, 212, 255, 0.3)"/>
+                    </svg>
+                </div>
+                <div class="vehicle-info">
+                    <div class="vehicle-name">EQS</div>
+                    <div class="vehicle-price">$110,000</div>
+                    <div class="vehicle-specs">
+                        <div class="spec">
+                            <span class="spec-value">516 HP</span>
+                            <span>قوة</span>
+                        </div>
+                        <div class="spec">
+                            <span class="spec-value">3.8s</span>
+                            <span>التسارع</span>
+                        </div>
+                        <div class="spec">
+                            <span class="spec-value">⚡ EV</span>
+                            <span>كهربائي</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CLS -->
+            <div class="vehicle-card reveal">
+                <div class="vehicle-image">
+                    <svg width="100%" height="100%" viewBox="0 0 300 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="cls-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#c0c0c0;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#707070;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M 65 105 Q 65 75 110 60 L 190 58 Q 235 70 240 105 L 240 130 Q 238 148 215 152 L 85 152 Q 62 148 65 130 Z" fill="url(#cls-gradient)"/>
+                        <circle cx="88" cy="147" r="23" fill="#1a1f3a" stroke="#c0c0c0" stroke-width="2"/>
+                        <circle cx="212" cy="147" r="23" fill="#1a1f3a" stroke="#c0c0c0" stroke-width="2"/>
+                        <path d="M 110 75 L 150 65 L 150 110 L 110 100 Z" fill="rgba(0, 212, 255, 0.2)"/>
+                        <path d="M 150 75 L 190 65 L 190 110 L 150 100 Z" fill="rgba(0, 212, 255, 0.2)"/>
+                    </svg>
+                </div>
+                <div class="vehicle-info">
+                    <div class="vehicle-name">CLS 580</div>
+                    <div class="vehicle-price">$89,000</div>
+                    <div class="vehicle-specs">
+                        <div class="spec">
+                            <span class="spec-value">469 HP</span>
+                            <span>قوة</span>
+                        </div>
+                        <div class="spec">
+                            <span class="spec-value">4.1s</span>
+                            <span>التسارع</span>
+                        </div>
+                        <div class="spec">
+                            <span class="spec-value">V8</span>
+                            <span>محرك</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Maybach -->
+            <div class="vehicle-card reveal">
+                <div class="vehicle-image">
+                    <svg width="100%" height="100%" viewBox="0 0 300 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="maybach-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#d4af37;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#9d7e0c;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M 40 105 Q 40 70 100 55 L 200 52 Q 260 68 265 105 L 265 132 Q 263 152 235 158 L 65 158 Q 37 152 40 132 Z" fill="url(#maybach-gradient)"/>
+                        <circle cx="75" cy="150" r="26" fill="#1a1f3a" stroke="#d4af37" stroke-width="2"/>
+                        <circle cx="225" cy="150" r="26" fill="#1a1f3a" stroke="#d4af37" stroke-width="2"/>
+                        <rect x="100" y="65" width="50" height="45" fill="rgba(212, 175, 55, 0.2)" rx="3"/>
+                        <rect x="150" y="65" width="50" height="45" fill="rgba(212, 175, 55, 0.2)" rx="3"/>
+                    </svg>
+                </div>
+                <div class="vehicle-info">
+                    <div class="vehicle-name">Maybach S680</div>
+                    <div class="vehicle-price">$180,000</div>
+                    <div class="vehicle-specs">
+                        <div class="spec">
+                            <span class="spec-value">621 HP</span>
+                            <span>قوة</span>
+                        </div>
+                        <div class="spec">
+                            <span class="spec-value">3.9s</span>
+                            <span>التسارع</span>
+                        </div>
+                        <div class="spec">
+                            <span class="spec-value">V12</span>
+                            <span>محرك</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D Experience Section -->
+    <section class="experience-section">
+        <div class="particles" id="particlesContainer"></div>
+        <div class="experience-title reveal">
+            🏁 تم هندستها بلا حدود
+        </div>
+    </section>
+
+    <!-- AMG Performance Section -->
+    <section class="amg-section" id="amg">
+        <div class="amg-content">
+            <h2 class="amg-title reveal">مجموعة AMG الأداء</h2>
+            <div class="amg-specs">
+                <div class="amg-spec-card reveal">
+                    <div class="amg-value">585</div>
+                    <div class="stat-label">حصان أقصى</div>
+                </div>
+                <div class="amg-spec-card reveal">
+                    <div class="amg-value">800</div>
+                    <div class="stat-label">نيوتن·متر</div>
+                </div>
+                <div class="amg-spec-card reveal">
+                    <div class="amg-value">2.8s</div>
+                    <div class="stat-label">0-100 كم/س</div>
+                </div>
+                <div class="amg-spec-card reveal">
+                    <div class="amg-value">330</div>
+                    <div class="stat-label">أقصى سرعة</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Electric Section -->
+    <section class="electric-section" id="electric">
+        <div class="electric-content">
+            <h2 class="electric-title reveal">⚡ المستقبل الكهربائي</h2>
+            <div class="electric-cards">
+                <div class="electric-card reveal">
+                    <div class="electric-icon">🔋</div>
+                    <h3>نطاق البطارية</h3>
+                    <p>يصل إلى 770 كم من سيارة واحدة EQS</p>
+                </div>
+                <div class="electric-card reveal">
+                    <div class="electric-icon">⚡</div>
+                    <h3>الشحن السريع</h3>
+                    <p>شحن 80% في 30 دقيقة فقط</p>
+                </div>
+                <div class="electric-card reveal">
+                    <div class="electric-icon">🤖</div>
+                    <h3>تقنية AI</h3>
+                    <p>نظام قيادة ذكي وآمن للغاية</p>
+                </div>
+                <div class="electric-card reveal">
+                    <div class="electric-icon">📱</div>
+                    <h3>كابينة ذكية</h3>
+                    <p>تحكم كامل من تطبيق الهاتف</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interior Section -->
+    <section class="interior-section" id="interior">
+        <h2 class="section-title reveal">الفخامة الداخلية</h2>
+        <div class="interior-gallery">
+            <div class="interior-image reveal">
+                <svg width="100%" height="100%" viewBox="0 0 16 9" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="16" height="9" fill="#2a2f4a"/>
+                    <circle cx="8" cy="4.5" r="2" fill="#00d4ff" opacity="0.6"/>
+                    <rect x="2" y="2" width="3" height="5" rx="0.5" fill="#c0c0c0" opacity="0.7"/>
+                    <rect x="11" y="2" width="3" height="5" rx="0.5" fill="#c0c0c0" opacity="0.7"/>
+                </svg>
+                <div class="interior-label">عجلة القيادة</div>
+            </div>
+            <div class="interior-image reveal">
+                <svg width="100%" height="100%" viewBox="0 0 16 9" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="16" height="9" fill="#2a2f4a"/>
+                    <rect x="3" y="2" width="10" height="5" rx="1" fill="#1a1f3a" stroke="#00d4ff" stroke-width="0.2"/>
+                    <circle cx="5" cy="4.5" r="0.3" fill="#00d4ff"/>
+                    <circle cx="8" cy="4.5" r="0.3" fill="#00d4ff"/>
+                    <circle cx="11" cy="4.5" r="0.3" fill="#00d4ff"/>
+                </svg>
+                <div class="interior-label">لوحة المعلومات</div>
+            </div>
+            <div class="interior-image reveal">
+                <svg width="100%" height="100%" viewBox="0 0 16 9" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="16" height="9" fill="#2a2f4a"/>
+                    <rect x="1" y="1" width="14" height="7" rx="0.5" fill="#1a1f3a" stroke="#d4af37" stroke-width="0.3"/>
+                    <line x1="2" y1="3" x2="14" y2="3" stroke="#d4af37" stroke-width="0.1" opacity="0.5"/>
+                    <line x1="2" y1="5" x2="14" y2="5" stroke="#d4af37" stroke-width="0.1" opacity="0.5"/>
+                    <line x1="2" y1="7" x2="14" y2="7" stroke="#d4af37" stroke-width="0.1" opacity="0.5"/>
+                </svg>
+                <div class="interior-label">المقاعد الجلدية</div>
+            </div>
+            <div class="interior-image reveal">
+                <svg width="100%" height="100%" viewBox="0 0 16 9" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="16" height="9" fill="#2a2f4a"/>
+                    <rect x="4" y="2.5" width="8" height="4" rx="0.5" fill="#1a1f3a" stroke="#00d4ff" stroke-width="0.2"/>
+                    <circle cx="6" cy="4.5" r="0.2" fill="#00d4ff"/>
+                    <circle cx="8" cy="4.5" r="0.2" fill="#00d4ff"/>
+                    <circle cx="10" cy="4.5" r="0.2" fill="#00d4ff"/>
+                </svg>
+                <div class="interior-label">شاشة المركز</div>
+            </div>
+            <div class="interior-image reveal">
+                <svg width="100%" height="100%" viewBox="0 0 16 9" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="16" height="9" fill="#2a2f4a"/>
+                    <line x1="3" y1="4.5" x2="13" y2="4.5" stroke="#d4af37" stroke-width="0.3"/>
+                    <circle cx="8" cy="4.5" r="0.4" fill="none" stroke="#00d4ff" stroke-width="0.1"/>
+                </svg>
+                <div class="interior-label">نظام الصوت</div>
+            </div>
+            <div class="interior-image reveal">
+                <svg width="100%" height="100%" viewBox="0 0 16 9" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="16" height="9" fill="#2a2f4a"/>
+                    <rect x="2" y="2" width="12" height="5" rx="1" fill="none" stroke="#d4af37" stroke-width="0.2"/>
+                    <line x1="4" y1="2" x2="4" y2="7" stroke="#d4af37" stroke-width="0.15" opacity="0.5"/>
+                    <line x1="8" y1="2" x2="8" y2="7" stroke="#d4af37" stroke-width="0.15" opacity="0.5"/>
+                    <line x1="12" y1="2" x2="12" y2="7" stroke="#d4af37" stroke-width="0.15" opacity="0.5"/>
+                </svg>
+                <div class="interior-label">السقف البانورامي</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section" id="video">
+        <svg class="video-background" width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute; width: 100%; height: 100%;">
+            <rect width="1920" height="1080" fill="#0a0e27"/>
+            <path d="M 100 540 L 200 300 L 400 500 L 600 200 L 800 700 L 1000 400 L 1200 600 L 1400 350 L 1600 650 L 1820 450" stroke="#00d4ff" stroke-width="2" fill="none" opacity="0.3"/>
+            <path d="M 100 600 L 200 400 L 400 550 L 600 300 L 800 750 L 1000 450 L 1200 650 L 1400 400 L 1600 700 L 1820 500" stroke="#d4af37" stroke-width="2" fill="none" opacity="0.2"/>
+        </svg>
+        <div class="video-overlay"></div>
+        <div class="video-content">
+            <h2 class="video-title reveal">مصنوعة للأساطير</h2>
+        </div>
+    </section>
+
+    <!-- Build Your Car Section -->
+    <section class="configurator-section">
+        <h2 class="section-title reveal">صمّم سيارتك الخاصة</h2>
+        <div class="configurator-container">
+            <div class="configurator-preview">
+                <svg class="preview-car" viewBox="0 0 500 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="config-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#e0e0e0;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#808080;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <ellipse cx="250" cy="180" rx="180" ry="60" fill="url(#config-gradient)"/>
+                    <circle cx="160" cy="220" r="35" fill="#1a1f3a" stroke="url(#config-gradient)" stroke-width="3"/>
+                    <circle cx="340" cy="220" r="35" fill="#1a1f3a" stroke="url(#config-gradient)" stroke-width="3"/>
+                    <path d="M 100 160 Q 80 140 85 100 L 130 90 Q 140 100 150 160 Z" fill="url(#config-gradient)"/>
+                    <path d="M 350 160 Q 420 140 415 100 L 370 90 Q 360 100 350 160 Z" fill="url(#config-gradient)"/>
+                </svg>
+            </div>
+            <div class="configurator-options">
+                <div class="config-group">
+                    <div class="config-label">اللون الخارجي</div>
+                    <div class="config-items">
+                        <div class="config-item active" style="background: #e0e0e0;"></div>
+                        <div class="config-item" style="background: #000000;"></div>
+                        <div class="config-item" style="background: #d4af37;"></div>
+                        <div class="config-item" style="background: #ff1744;"></div>
+                        <div class="config-item" style="background: #00d4ff;"></div>
+                    </div>
+                </div>
+                <div class="config-group">
+                    <div class="config-label">نوع الجنوط</div>
+                    <div class="config-items">
+                        <div class="config-item active" style="border: 2px solid #c0c0c0; background: radial-gradient(circle, #a0a0a0 30%, transparent 70%);"></div>
+                        <div class="config-item" style="border: 2px solid #d4af37; background: radial-gradient(circle, #b8860b 30%, transparent 70%);"></div>
+                        <div class="config-item" style="border: 2px solid #00d4ff; background: radial-gradient(circle, #0099ff 30%, transparent 70%);"></div>
+                    </div>
+                </div>
+                <div class="config-group">
+                    <div class="config-label">الداخلية</div>
+                    <div class="config-items">
+                        <div class="config-item active" style="background: #3d3d3d;"></div>
+                        <div class="config-item" style="background: #8b6914;"></div>
+                        <div class="config-item" style="background: #c0a080;"></div>
+                        <div class="config-item" style="background: #8b0000;"></div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;">تحديث المعاينة</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Test Drive Section -->
+    <section class="test-drive-section" id="contact">
+        <h2 class="section-title reveal">احجز اختبار القيادة</h2>
+        <div class="form-container">
+            <form onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label class="form-label">الاسم الكامل</label>
+                    <input class="form-input" type="text" placeholder="أدخل اسمك" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">رقم الهاتف</label>
+                    <input class="form-input" type="tel" placeholder="+966" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">اختر السيارة</label>
+                    <select class="form-select" required>
+                        <option>اختر سيارة</option>
+                        <option>Mercedes AMG GT</option>
+                        <option>Mercedes G63</option>
+                        <option>Mercedes S-Class</option>
+                        <option>Mercedes EQS</option>
+                        <option>Mercedes CLS</option>
+                        <option>Mercedes Maybach</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">التاريخ المفضل</label>
+                    <input class="form-input" type="date" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">المدينة</label>
+                    <input class="form-input" type="text" placeholder="أدخل مدينتك" required>
+                </div>
+                <button type="submit" class="submit-btn">احجز الآن</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Mercedes-Benz</h3>
+                    <p style="color: var(--accent-silver); font-size: 0.9rem; margin-top: 0.5rem;">مستقبل الأداء الفاخر</p>
+                </div>
+                <div class="footer-section">
+                    <h3>الروابط السريعة</h3>
+                    <ul>
+                        <li><a href="#vehicles">السيارات</a></li>
+                        <li><a href="#amg">AMG</a></li>
+                        <li><a href="#electric">كهربائي</a></li>
+                        <li><a href="#interior">الداخلية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>التواصل</h3>
+                    <ul>
+                        <li><a href="tel:+966112346789">+966 11 2346789</a></li>
+                        <li><a href="mailto:info@mercedes.com">info@mercedes.com</a></li>
+                        <li>جدة، المملكة العربية السعودية</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>متابعنا</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">𝕏</a>
+                        <a href="#" class="social-icon">📷</a>
+                        <a href="#" class="social-icon">in</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mercedes-Benz. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar Scroll Effect
+        const navbar = document.querySelector('.navbar');
+        let lastScrollTop = 0;
+
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+
+        // Reveal Animation on Scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Particle Generation
+        function generateParticles() {
+            const container = document.getElementById('particlesContainer');
+            if (!container) return;
+
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 3 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        // 3D Canvas Animation
+        function initializeCanvas() {
+            const canvas = document.getElementById('heroCanvas');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            let animationId;
+            const stars = [];
+
+            // Create stars
+            for (let i = 0; i < 100; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 1.5,
+                    opacity: Math.random() * 0.5 + 0.3
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = 'rgba(0, 212, 255, 0.1)';
+
+                stars.forEach((star, index) => {
+                    ctx.globalAlpha = star.opacity + Math.sin(Date.now() * 0.001 + index) * 0.2;
+                    ctx.beginPath();
+                    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+
+                ctx.globalAlpha = 1;
+                animationId = requestAnimationFrame(animate);
+            }
+
+            animate();
+
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        }
+
+        // Form Submit
+        function handleSubmit(e) {
+            e.preventDefault();
+            alert('شكراً لحجزك! سنتواصل معك قريباً');
+            e.target.reset();
+        }
+
+        // Initialize on Load
+        window.addEventListener('load', () => {
+            generateParticles();
+            initializeCanvas();
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
